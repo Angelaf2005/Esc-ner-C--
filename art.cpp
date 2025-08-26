@@ -16,3 +16,4 @@ void visualizacion_inicio(){
     )" << std::endl;
 } /// poner los nombres aquí.
 
+/// Este archivo contiene cualquier tipo de arte o diseño.

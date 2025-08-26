@@ -2,7 +2,7 @@
 #define VALIDACIONES
 
 struct objetivo {
-    std::string ip;
+    std::string ip; /// Aquí se añadiran los campos de los rangos o listas de puertos.
 };
 
 struct puerto {
