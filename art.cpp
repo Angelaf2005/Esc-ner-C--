@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "art.h"
 /// se incluirá la cabecera 
 
 void visualizacion_inicio(){
@@ -14,8 +14,5 @@ void visualizacion_inicio(){
     - Angel Adrian Alvarez Flores
     
     )" << std::endl;
-
-
-
 } /// poner los nombres aquí.
 
