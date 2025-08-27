@@ -12,7 +12,7 @@ void visualizacion_inicio(){
                                                                   
     Developed by:
     - Angel Adrian Alvarez Flores
-    
+    - Abraham Alejandro Carrreon Soriano
     )" << std::endl;
 } /// poner los nombres aquí.
 

@@ -1,8 +1,11 @@
 #ifndef VALIDACIONES
 #define VALIDACIONES
+#include <string>
+
+using namespace std;
 
 struct objetivo {
-    std::string ip; /// Aquí se añadiran los campos de los rangos o listas de puertos.
+    string ip; /// Aquí se añadiran los campos de los rangos o listas de puertos.
 };
 
 struct puerto {
@@ -12,5 +15,9 @@ struct puerto {
 
 
 objetivo* obtener_datos();
+
+bool scanPort(const string&, int, int);
+
+void scan(const string&, int, int);
 
 #endif
