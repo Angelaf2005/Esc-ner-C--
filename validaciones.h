@@ -1,7 +1,7 @@
 #ifndef VALIDACIONES
 #define VALIDACIONES
 #include <string>
-
+#include <vector>
 using namespace std;
 
 struct objetivo {
@@ -15,9 +15,5 @@ struct puerto {
 
 
 objetivo* obtener_datos();
-
-bool scanPort(const string&, int, int);
-
-void scan(const string&, int, int);
 
 #endif
