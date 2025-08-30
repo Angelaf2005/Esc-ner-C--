@@ -1,12 +1,11 @@
 #include <iostream>
-#include "escaneo.h"
+#include "registro.h"
 #include <string>
-#include <regex>
 #include <boost/asio.hpp>
 #include <thread>
 #include <vector>
 #include <mutex>
-
+#include <map>
 
 using namespace std;
 using boost::asio::ip::tcp;
@@ -116,11 +115,15 @@ void scan(const string& ip, int mode = 0 ,int startPort=0, int endPort=0, const 
         lock_guard<mutex> lock(res_m);
 		resP = res[port];
 
+        // Guardar resultados en el archivo
+        saveFile(port, resP, ip);
+
         switch (resP)
 		{
             case 1: cout << "Puerto abierto: " << port << endl; break;
             case 2: cout << "Puerto cerrado: " << port << endl; break;
             default: cout << "Puerto desconocido: " << port << endl; break;
         }
+
     }
 }
