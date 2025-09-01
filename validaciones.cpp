@@ -137,9 +137,10 @@ Elegir tipo de escaneo:
 0) Rango de puertos
 1) Lista de puertos
 2) Escaneo de puertos comunes
+3) Todos los puertos
             )" << std::endl;
             std::cin >> opcion;
-            if(opcion >= 0 && opcion <= 2){
+            if(opcion >= 0 && opcion <= 3){
                 Dir_escaneo->modo = opcion;
                 break;
             }  else {
@@ -169,7 +170,6 @@ Elegir tipo de escaneo:
                 flag = false;
                 break;
             default:
-
                 flag = false;
                 break;
             }
