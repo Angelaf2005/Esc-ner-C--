@@ -1,12 +1,13 @@
-#ifndef escaneo_h
-#define escaneo_h
+#ifndef ESCANEO_H
+#define ESCANEO_H
 
 #include <string>
 #include <vector>
-using namespace std;
 
-int scanPort(const string&, int, int);
+//using namespace std;
 
-void scan(const string&, int, int,  int, const vector<int>&);
+int scanPort(const std::string&, int, int);
+
+void scan(const std::string&, int, int,  int, const std::vector<int>&);
 
 #endif

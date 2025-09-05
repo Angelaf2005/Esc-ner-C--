@@ -17,7 +17,7 @@ bool validar_ip(std::string& ip){
     }
 }
 
-void  validar_rango_puertos(objetivo& Dir){
+void validar_rango_puertos(objetivo& Dir){
     std::cin.exceptions(std::ios::failbit | std::ios::badbit);
     int puerto_inicial;
     int puerto_final;
@@ -44,8 +44,8 @@ void  validar_rango_puertos(objetivo& Dir){
         } catch(const std::ios_base::failure& e) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Error al ingresar puertos, vuelva a ingresar" << endl;
-        } 
+            std::cout << "Error al ingresar puertos, vuelva a ingresar" << std::endl;
+        }
         
     }
     
@@ -58,12 +58,7 @@ bool validar_lista(std::string& lista_puertos){
     } else {
         return true;
     }
-
 }
-
-
-
-
 
 
 
@@ -85,7 +80,8 @@ std::vector<int> ingresar_lista_puertos (){
                 int puerto = std::stoi(token);
                 if (puerto >= 1 && puerto <= 65535) {
                     puertos.push_back(puerto);
-                }}
+                }
+            }
             return puertos;
         } catch(const std::ios_base::failure& e) {
             std::cin.clear();
@@ -94,9 +90,7 @@ std::vector<int> ingresar_lista_puertos (){
         } catch(const excepciones& e){
             std::cout << "Error: " << e.what() << std::endl;
         }
-        
     }
-    
 }
 
 
@@ -155,37 +149,27 @@ Elegir tipo de escaneo:
     }
 
     bool flag = true;
-    while (flag)
-    {
-        try
-        {
-            switch (opcion)
-            {
-            case 0:
-                validar_rango_puertos(*Dir_escaneo);
-                flag = false;
-                break;
-            case 1:
-                Dir_escaneo->puertos = ingresar_lista_puertos();
-                flag = false;
-                break;
-            default:
-                flag = false;
-                break;
+    while (flag) {
+        try {
+            switch (opcion) {
+                case 0:
+                    validar_rango_puertos(*Dir_escaneo);
+                    flag = false;
+                    break;
+                case 1:
+                    Dir_escaneo->puertos = ingresar_lista_puertos();
+                    flag = false;
+                    break;
+                default:
+                    flag = false;
+                    break;
             }
-        }
-        catch(const std::exception& e)
-        {
+        } catch(const std::exception& e) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cout << "Error, intente de nuevo"<< std::endl;
         }
-        
     }
-    
-
-
-
 
     Dir_escaneo->ip = ip;
     return Dir_escaneo;

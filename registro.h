@@ -1,11 +1,12 @@
-#ifndef registro_h
-#define registro_h
+#ifndef REGISTRO_H
+#define REGISTRO_H
 
 #include <string>
 #include <vector>
-using namespace std;
 
-void saveFile(int, int, const string&, string filename = "resultados_escaneo.txt");
+//using namespace std;
+
+void saveFile(int, int, const std::string&, std::string filename = "resultados_escaneo.txt");
 
 
 #endif

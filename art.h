@@ -1,5 +1,5 @@
-#ifndef ART
-#define ART
+#ifndef ART_H
+#define ART_H
 
 void visualizacion_inicio();
 

@@ -13,7 +13,9 @@ void visualizacion_inicio(){
     Developed by:
     - Angel Adrian Alvarez Flores
     - Abraham Alejandro Carrreon Soriano
+    - Jesus Kenneth Maurizio Martinez Vazquez
+    - Raul Alejandro Rios Turrubiates
     )" << std::endl;
-} /// poner los nombres aquí.
+}
 
 /// Este archivo contiene cualquier tipo de arte o diseño.
