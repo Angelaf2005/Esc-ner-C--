@@ -1,5 +1,5 @@
 #include <iostream>
-#include "art.h"
+#include "../include/art.h"
 /// se incluirá la cabecera 
 
 void visualizacion_inicio(){

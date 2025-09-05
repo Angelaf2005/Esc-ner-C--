@@ -1,5 +1,5 @@
 #include <iostream>
-#include "validaciones.h"
+#include "../include/validaciones.h"
 #include <string>
 #include <string.h>
 #include <regex>

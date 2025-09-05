@@ -1,5 +1,5 @@
 #include <iostream>
-#include "registro.h"
+#include "../include/registro.h"
 #include <string>
 #include <boost/asio.hpp>
 #include <thread>

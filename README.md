@@ -15,14 +15,14 @@ cd Esc-ner-C--
 2. Compilar:
 Asegurate de tener instalado Boost.Asio y un compilador compatible con C++ (ej. g++ de MinGW).
 ```bash
-g++ .\main.cpp .\validaciones.cpp .\registro.cpp .\art.cpp -o portscanner -lws2_32
+g++ .\src\main.cpp .\src\validaciones.cpp .\src\registro.cpp .\src\art.cpp .\src\escaneo.cpp -o portscaner.exe -lws2_32
 ```
 Nota: -lws2_32 es necesesario para la libreria de sockets en Windows.
 
 3. Uso:
 Ejecutar el binario generado.
 ```bash
-./portscanner
+./portscanner.exe
 ```
 El programa pedira la dirección IP y un rango o lista de puertos, luego mostrara el estado de cada puerto.
 

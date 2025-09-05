@@ -1,7 +1,7 @@
 #include <iostream>
-#include "art.h"
-#include "validaciones.h"
-#include "escaneo.h"
+#include "../include/art.h"
+#include "../include/validaciones.h"
+#include "../include/escaneo.h"
 
 using namespace std;
 
