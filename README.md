@@ -9,7 +9,7 @@ Permite escanear rangos de puertos o listas especificas de manera eficiente.
 1. Clonar el repositorio:
 ```bash
 git clone https://github.com/Angelaf2005/Esc-ner-C--.git
-cd portscanner
+cd Esc-ner-C--
 ```
 
 2. Compilar:
