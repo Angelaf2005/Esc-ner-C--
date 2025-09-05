@@ -1,6 +1,0 @@
-Fecha y hora: 5/9/2025 0:34:3
-Objetivo: 192.168.1.1
-Resultados del escaneo de puertos:
-
-Puerto 80: abierto
-Puerto 443: abierto

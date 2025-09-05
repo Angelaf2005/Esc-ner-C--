@@ -36,10 +36,8 @@ map <int, string> topPorts =
 
 
 
-int scanPort(const string& ip, int port, int timeout_ms = 1000)
-{
-    try
-    {
+int scanPort(const string& ip, int port, int timeout_ms = 1000) {
+    try {
         boost::asio::io_context io;
         tcp::endpoint endpoint(boost::asio::ip::make_address(ip), port);
         tcp::socket socket(io);
@@ -62,24 +60,20 @@ int scanPort(const string& ip, int port, int timeout_ms = 1000)
 
         io.run();
         return connected;
-    }
-
-    catch (...)
-    {
+    } catch (...) {
         return 3;
     }
 }
 
-void scan(const string& ip, int mode = 0 ,int startPort=0, int endPort=0, const vector<int>& ports = {})
-{
+
+void scan(const string& ip, int mode = 0 ,int startPort=0, int endPort=0, const vector<int>& ports = {}) {
     vector<thread> threads;
     map<int, int> res;
     mutex res_m;
     vector<int> scanPorts;
 
-    if (mode == 0)
-	{ // Rango
-        for (int port = startPort; port <= endPort; ++port)
+    if (mode == 0) { // Rango
+        for (int port = startPort; port <= endPort; port++)
             scanPorts.push_back(port);
     }
 	else if (mode == 1)
@@ -93,12 +87,11 @@ void scan(const string& ip, int mode = 0 ,int startPort=0, int endPort=0, const 
     }
 	else if (mode == 3)
 	{ // Todos
-        for (int port = 1; port <= 65535; ++port)
+        for (int port = 1; port <= 65535; port++)
             scanPorts.push_back(port);
     }
 
-    for (int port : scanPorts)
-	{
+    for (int port : scanPorts) {
         threads.emplace_back([ip, port, &res, &res_m]()
 		{
             int resP = scanPort(ip, port);
@@ -109,8 +102,7 @@ void scan(const string& ip, int mode = 0 ,int startPort=0, int endPort=0, const 
 
     for (auto& t : threads) t.join();
 
-    for (int port : scanPorts)
-	{
+    for (int port : scanPorts) {
         int resP;
         lock_guard<mutex> lock(res_m);
 		resP = res[port];
@@ -118,12 +110,10 @@ void scan(const string& ip, int mode = 0 ,int startPort=0, int endPort=0, const 
         // Guardar resultados en el archivo
         saveFile(port, resP, ip);
 
-        switch (resP)
-		{
-            case 1: cout << "Puerto abierto: " << port << endl; break;
-            case 2: cout << "Puerto cerrado: " << port << endl; break;
-            default: cout << "Puerto desconocido: " << port << endl; break;
+        switch (resP) {
+            case 1: cout << "\t(" << port << ") -> abierto" << endl; break;
+            case 2: cout << "\t(" << port << ") -> cerrado" << endl; break;
+            default: cout << "\t(" << port << ") -> desconocido" << endl; break;
         }
-
     }
 }
