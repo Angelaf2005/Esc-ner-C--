@@ -19,6 +19,7 @@ struct objetivo {
     int puerto_inicial = 0;
     int puerto_final = 0;
     std::vector<int> puertos = {};
+    std::string filename;
 };
 
 struct puerto {

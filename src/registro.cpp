@@ -8,28 +8,25 @@
 using namespace std;
 
 
-void saveFile(int port, int status, const string& ip, string filename)
-{
+void saveFile(int port, int status, const string& ip, string filename) {
     // Verificar si el archivo ya existe
     bool archivo_existe = false;
     ifstream infile(filename);
-    if (infile.good())
-    {
+
+    if (infile.good()) {
         archivo_existe = true;
     }
     infile.close();
 
-    // Abrir el archivo en modo append
+    // Abrir el archivo en modo append+
     ofstream outfile(filename, ios::app);
-    if (!outfile.is_open())
-    {
+    if (!outfile.is_open()) {
         cerr << "Error al abrir el archivo " << filename << " para escribir." << endl;
         return;
     }
 
     // Si el archivo no existe, escribir la fecha y hora actuales
-    if (archivo_existe == false)
-    {
+    if (archivo_existe == false) {
         time_t now = time(0);
         tm* local_time = localtime(&now);
         outfile << "Fecha y hora: "

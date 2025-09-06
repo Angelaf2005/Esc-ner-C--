@@ -66,7 +66,7 @@ int scanPort(const string& ip, int port, int timeout_ms = 1000) {
 }
 
 
-void scan(const string& ip, int mode = 0 ,int startPort=0, int endPort=0, const vector<int>& ports = {}) {
+void scan(const string& ip, int mode = 0 ,int startPort=0, int endPort=0, const vector<int>& ports = {}, string filename = "resultados") {
     vector<thread> threads;
     map<int, int> res;
     mutex res_m;
@@ -108,7 +108,7 @@ void scan(const string& ip, int mode = 0 ,int startPort=0, int endPort=0, const 
 		resP = res[port];
 
         // Guardar resultados en el archivo
-        saveFile(port, resP, ip);
+        saveFile(port, resP, ip, filename);
 
         switch (resP) {
             case 1: cout << "\t(" << port << ") -> abierto" << endl; break;

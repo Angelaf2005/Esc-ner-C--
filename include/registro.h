@@ -6,7 +6,7 @@
 
 //using namespace std;
 
-void saveFile(int, int, const std::string&, std::string filename = "resultados_escaneo.txt");
+void saveFile(int, int, const std::string&, std::string filename);
 
 
 #endif

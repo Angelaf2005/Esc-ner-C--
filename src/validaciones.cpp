@@ -92,28 +92,31 @@ std::vector<int> ingresar_lista_puertos (){
 
 
 
-objetivo* obtener_datos(){
+objetivo* obtener_datos() {
     objetivo* Dir_escaneo = new objetivo;
     std::string ip;
+    std::string filename;
     int opcion;
     std::cin.exceptions(std::ios::failbit | std::ios::badbit);
-    while (true)
-    {   try{
-        std::cout << "Ingresar direccion IP objetivo a escanear: ";
-        std::cin >> ip;
-        validar_ip(ip);
-        break;} catch (const std::ios_base::failure& e){
+
+    while (true) {
+        try {
+            std::cout << "Ingresar direccion IP objetivo a escanear: ";
+            std::cin >> ip;
+            validar_ip(ip);
+            break;
+        } catch (const std::ios_base::failure& e) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cout << "Entrada invalida.";
-        } catch(const excepciones& e){
+        } catch(const excepciones& e) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cout << "Error: " << e.what() << std::endl;
         }
     }
-    while (true)
-    {
+
+    while (true) {
         try{
             std::cout << R"( 
 0) Rango de puertos
@@ -122,14 +125,14 @@ objetivo* obtener_datos(){
 3) Todos los puertos
 Elegir tipo de escaneo: )";
             std::cin >> opcion;
-            if(opcion >= 0 && opcion <= 3){
+            if (opcion >= 0 && opcion <= 3) {
                 Dir_escaneo->modo = opcion;
                 break;
-            }  else {
+            } else {
                 std::cout << "Opcion invalida, intente de nuevo." << std::endl;
             }
 
-        } catch(const std::ios_base::failure& e){
+        } catch(const std::ios_base::failure& e) {
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 std::cout << "Entrada invalida, intente de nuevo.";
@@ -159,6 +162,10 @@ Elegir tipo de escaneo: )";
         }
     }
 
+    std::cout << "Ingresar nombre de archivo de reusltados: ";
+    std::cin >> filename;
+
+    Dir_escaneo->filename = filename;
     Dir_escaneo->ip = ip;
     return Dir_escaneo;
     /// esta función reserva un espacio para el struct que contiene la dirección IP que se asignará al struct

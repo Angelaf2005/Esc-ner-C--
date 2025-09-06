@@ -8,6 +8,6 @@
 
 int scanPort(const std::string&, int, int);
 
-void scan(const std::string&, int, int,  int, const std::vector<int>&);
+void scan(const std::string&, int, int,  int, const std::vector<int>&, std::string);
 
 #endif
