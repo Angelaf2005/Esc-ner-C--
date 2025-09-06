@@ -1,11 +1,26 @@
-# PortScanner
+# 🔍 Proyecto: Escáner de Puertos en C++
 
+## 📝 Descripción general
 Proyecto de **escaner de puertos rapido** desarrollado en C++ para **Windows**, utilizando la biblioteca **Boost.Asio**.
 Permite escanear rangos de puertos o listas especificas de manera eficiente.
 
 ---
 
-## 📦 Instalación
+## 👥 Integrantes del equipo
+    - Angel Adrian Alvarez Flores               [angelaf2005]
+    - Abraham Alejandro Carrreon Soriano        [Abraham-Carreon]
+    - Jesus Kenneth Maurizio Martinez Vazquez   []
+    - Raul Alejandro Rios Turrubiates           [RSKR0]
+
+
+## 🖥️ Instrucciones de compilación y ejecución
+
+### ✅ Requisitos
+    - Sistema operativo: Windows
+    - Compilador: g++
+    - Librerías necesarias: Boost.Asio
+
+### ⚙️ Instalación
 1. Clonar el repositorio:
 ```bash
 git clone https://github.com/Angelaf2005/Esc-ner-C--.git
@@ -26,13 +41,12 @@ Ejecutar el binario generado.
 ```
 El programa pedira la dirección IP y un rango o lista de puertos, luego mostrara el estado de cada puerto.
 
-
-## Librerias
+## 📝 Librerias del proyecto
 Boost.Asio -> Manejo de conexiones TCP/UDP.
 Librerias estandar de C++.
 
-## Recomendaciones
-Tener en cuenta que algunos antivirus podrían detectar el binario.
+## 💡 Recomendaciones
+Tener en cuenta que algunos antivirus podrían detectar el binario como malicioso.
 
 ## 📄 Licencia
 Este proyecto está bajo la **MIT License** - mira el archivo [LICENSE](LICENSE) para más detalles.
