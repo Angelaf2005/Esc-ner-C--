@@ -9,7 +9,7 @@ Permite escanear rangos de puertos o listas especificas de manera eficiente.
 ## 👥 Integrantes del equipo
     - Angel Adrian Alvarez Flores               [angelaf2005]
     - Abraham Alejandro Carrreon Soriano        [Abraham-Carreon]
-    - Jesus Kenneth Maurizio Martinez Vazquez   []
+    - Jesus Kenneth Maurizio Martinez Vazquez   [RedKnight023]
     - Raul Alejandro Rios Turrubiates           [RSKR0]
 
 
