@@ -162,7 +162,7 @@ Elegir tipo de escaneo: )";
         }
     }
 
-    std::cout << "Ingresar nombre de archivo de reusltados: ";
+    std::cout << "Ingresar nombre de archivo de resultados: ";
     std::cin >> filename;
 
     Dir_escaneo->filename = filename;
