@@ -12,7 +12,7 @@ void visualizacion_inicio(){
                                                                   
     Developed by:
     - Angel Adrian Alvarez Flores
-    - Abraham Alejandro Carrreon Soriano
+    - Abraham Alejandro Carreon Soriano
     - Jesus Kenneth Maurizio Martinez Vazquez
     - Raul Alejandro Rios Turrubiates
     )" << std::endl;

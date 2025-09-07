@@ -163,29 +163,15 @@ Elegir tipo de escaneo: )";
     }
 
     std::cout << "Ingresar nombre de archivo de resultados: ";
-    std::cin >> filename;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::getline(std::cin, filename);
+
+    if (filename.empty()) filename = "registro.txt";
+
+    if (filename.size() < 5 || filename.substr(filename.size() - 4) != ".txt") filename += ".txt";
 
     Dir_escaneo->filename = filename;
     Dir_escaneo->ip = ip;
     return Dir_escaneo;
     /// esta función reserva un espacio para el struct que contiene la dirección IP que se asignará al struct
 }
-
-// int main(){
-//     objetivo* Dir_escaneo;
-//     Dir_escaneo = obtener_datos();
-//     std::cout << Dir_escaneo->ip << std::endl;
-//     std::cout << Dir_escaneo->modo << std::endl;
-//     std::cout << Dir_escaneo->puerto_inicial << std::endl;
-//     std::cout << Dir_escaneo->puerto_final << std::endl;
-//     std::cout << "[";
-//     for (size_t i = 0; i < Dir_escaneo->puertos.size(); ++i) {
-//         std::cout << Dir_escaneo->puertos[i];
-//         if (i < Dir_escaneo->puertos.size() - 1) std::cout << ",";
-//     }
-//     std::cout << "]" << std::endl;
-
-
-
-//     return 0;
-// }
