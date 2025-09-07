@@ -6,6 +6,7 @@
 #include <vector>
 #include <mutex>
 #include <map>
+#include <fstream>
 
 using namespace std;
 using boost::asio::ip::tcp;
@@ -34,7 +35,9 @@ map <int, string> topPorts =
     {8080, "HTTP Proxy"}
 };
 
-
+//Para detectar puertos sospechosos
+vector<int> historicos = { 20, 21, 23, 67, 68, 80, 110, 143, 3389, 5900 };
+vector<int> sospechosos;
 
 int scanPort(const string& ip, int port, int timeout_ms = 1000) {
     try {
@@ -115,5 +118,43 @@ void scan(const string& ip, int mode = 0 ,int startPort=0, int endPort=0, const 
             case 2: cout << "\t(" << port << ") -> cerrado" << endl; break;
             default: cout << "\t(" << port << ") -> desconocido" << endl; break;
         }
+
+        // Verificar si se encuentra en la lista de vulnerables o sospechosos
+        if (resP == 1 && (find(historicos.begin(), historicos.end(), port) != historicos.end() || (port > 1024 && port != 8080))) { //resP == 1 abierto
+            sospechosos.push_back(port);
+        }
+    }
+
+    // Al final del bucle, guardas la lista de sospechosos
+    ofstream outfile(filename, ios::app);
+    if (outfile.is_open()) {
+        if (!sospechosos.empty()) {
+            outfile << endl << "=== [Lista de puertos sospechosos] ===" << endl;
+            cout << endl << "=== [Lista de puertos sospechosos] ===" << endl;  // <-- agregar esto
+
+            for (int puerto : sospechosos) {
+                string descripcion;
+                switch (puerto) {
+                case 20: descripcion = "FTP Data históricamente vulnerable"; break;
+                case 21: descripcion = "FTP Control históricamente vulnerable"; break;
+                case 23: descripcion = "Telnet comunicación no cifrada"; break;
+                case 67: case 68: descripcion = "DHCP, podria exponer configuraciones de red"; break;
+                case 80: descripcion = "HTTP, servicios inseguros posibles"; break;
+                case 110: descripcion = "POP3, revisar autenticación"; break;
+                case 143: descripcion = "IMAP, revisar autenticación"; break;
+                case 3389: descripcion = "RDP, potencialmente vulnerable"; break;
+                case 5900: descripcion = "VNC, Permite el acceso remoto"; break;
+                default: descripcion = "abierto pero no corresponde a un servicio conocido"; break;
+                }
+                outfile << "Puerto " << puerto << ": " << descripcion << endl;
+                cout << "Puerto " << puerto << ": " << descripcion << endl;  // <-- agregar esto
+            }
+        }
+        else {
+            outfile << "Cero puertos sospechosos detectados" << endl;
+            cout << "Cero puertos sospechosos detectados" << endl;
+
+        }
+        outfile.close();
     }
 }
