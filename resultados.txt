@@ -1,0 +1,23 @@
+Fecha y hora: 7/9/2025 18:27:45
+Objetivo: 192.168.1.1
+Resultados del escaneo de puertos:
+
+Puerto 20: cerrado
+Puerto 21: cerrado
+Puerto 22: cerrado
+Puerto 23: cerrado
+Puerto 25: cerrado
+Puerto 53: abierto
+Puerto 67: cerrado
+Puerto 68: cerrado
+Puerto 80: abierto
+Puerto 110: cerrado
+Puerto 143: cerrado
+Puerto 443: abierto
+Puerto 3306: cerrado
+Puerto 3389: cerrado
+Puerto 5900: cerrado
+Puerto 8080: cerrado
+
+=== [Lista de puertos sospechosos] ===
+Puerto 80: HTTP, servicios inseguros posibles
